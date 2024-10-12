@@ -7,7 +7,6 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
 
@@ -17,7 +16,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
@@ -33,7 +31,7 @@ const Login = () => {
     console.log(message);
     setErrorMessage(message);
 
-    if (message !== null) return;
+    if (message) return;
     if (!isSignInForm) {
       //signup
 
@@ -59,7 +57,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error);
@@ -83,9 +80,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
-
           // ...
         })
         .catch((error) => {
@@ -99,11 +93,11 @@ const Login = () => {
     <div className="">
       <Header />
 
-      <div className="absolute">
+      <div className="absolute brightness-75">
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/f272782d-cf96-4988-a675-6db2afd165e0/web/IN-en-20241008-TRIFECTA-perspective_b28b640f-cee0-426b-ac3a-7c000d3b41b7_large.jpg"
           alt="Trending movies"
-          className=""
+          className="h-screen object-cover md:w-screen md:h-screen"
         />
       </div>
 
