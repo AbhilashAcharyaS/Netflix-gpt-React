@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { BG_IMG_URL } from "../Utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -95,7 +96,7 @@ const Login = () => {
 
       <div className="absolute brightness-75">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/f272782d-cf96-4988-a675-6db2afd165e0/web/IN-en-20241008-TRIFECTA-perspective_b28b640f-cee0-426b-ac3a-7c000d3b41b7_large.jpg"
+          src={BG_IMG_URL}
           alt="Trending movies"
           className="h-screen object-cover md:w-screen md:h-screen"
         />
