@@ -4,6 +4,8 @@ import { addTrailerVideo } from "../Utils/moviesSlice";
 import { useEffect } from "react";
 
 const useMovieTrailer = (movieId)=>{
+    // console.log(movieId);
+    
 const dispatch = useDispatch();
     
     const getMovieVideos = async()=>{
@@ -21,7 +23,7 @@ const dispatch = useDispatch();
     
     useEffect(()=>{
         getMovieVideos();
-    },[])
+    },[movieId])
 }
 
 export default useMovieTrailer;

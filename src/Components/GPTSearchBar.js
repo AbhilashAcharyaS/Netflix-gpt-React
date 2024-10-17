@@ -5,6 +5,7 @@ import client from '../Utils/openai';
 import Error from './Error';
 import { API_OPTIONS } from '../Utils/constants';
 import { addSearchMovieResult } from '../Utils/moviesSlice';
+import { addGptMovieResult } from '../Utils/GPTSlice';
 
 const GPTSearchBar = () => {
 
@@ -44,6 +45,7 @@ const GPTSearchBar = () => {
       // const gptMovies = gptResult.choices?.[0]?.message?.content.split(",");
       // const promiseArray = gptMovies.map((movie)=>searchMovieTMDB(movie));
       // const tmdbResults = await Promise.all(promiseArray);
+      // dispatch(addGptMovieResult({movieNames:gptMovies,movieResults:tmdbResults}))
 
       searchMovieTMDB(searchText.current.value);
       
