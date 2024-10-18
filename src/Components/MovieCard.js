@@ -13,8 +13,8 @@ const MovieCard = ({film}) => {
   }
   return (
     <div>
-      <div className='w-40 p-2'>
-        <img className='rounded-lg hover:scale-110 hover:rounded-xl cursor-pointer h-[216px]' src={IMG_CDN_URL+film.poster_path} alt="moviePoster" onClick={handleMoviePosterClick} />
+      <div className='w-28 md:w-40 p-2'>
+        <img className='rounded-lg hover:scale-110 hover:rounded-xl cursor-pointer h-[140px] md:h-[216px]' src={IMG_CDN_URL+film.poster_path} alt="moviePoster" onClick={handleMoviePosterClick} />
       </div>
     </div>
   )

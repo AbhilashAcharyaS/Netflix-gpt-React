@@ -26,10 +26,10 @@ const Login = () => {
   const handleButtonClick = () => {
     // console.log(name?.current?.value);
 
-    console.log(email.current.value);
-    console.log(password.current.value);
+    // console.log(email.current.value);
+    // console.log(password.current.value);
     const message = checkValidData(email.current.value, password.current.value);
-    console.log(message);
+    // console.log(message);
     setErrorMessage(message);
 
     if (message) return;
@@ -68,7 +68,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + "-" + errorMessage);
+          setErrorMessage(errorMessage);
           // ..
         });
     } else {
@@ -86,7 +86,7 @@ const Login = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          setErrorMessage(errorCode + "-" + errorMessage);
+          setErrorMessage(errorMessage);
         });
     }
   };
@@ -104,9 +104,9 @@ const Login = () => {
 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="p-12 bg-black absolute bg-opacity-80 w-1/3 mx-auto my-32 right-0 left-0 rounded-xl"
+        className="p-12 bg-black absolute bg-opacity-80 w-4/5 md:w-1/3 mx-auto my-48 md:my-32 right-0 left-0 rounded-xl"
       >
-        <h2 className="font-bold text-3xl text-white py-2 mb-6">
+        <h2 className="font-bold text-3xl text-center md:text-left text-white py-2 mb-6">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h2>
         {!isSignInForm && (

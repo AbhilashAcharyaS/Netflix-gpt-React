@@ -56,17 +56,17 @@ const Header = () => {
   }
 
   return (
-    <div className="absolute px-32 z-10 bg-gradient-to-b from-black w-full flex justify-between">
+    <div className="absolute px-32 z-10 bg-gradient-to-b from-black w-full flex flex-col md:flex-row md:justify-between">
       <div>
-        <img src={LOGO} className="w-48 " alt="logo" />
+        <img src={LOGO} className="w-48 h-24 md:h-auto" alt="logo" />
       </div>
 
       {user && (
-        <div className="flex my-2">
-          <button className="bg-purple-700 text-white font-semibold h-12 w-40 mt-2 hover:scale-105 p-2 rounded-lg" onClick={handleGPTButtonClick}>
-            {showGptSearch ? "Home Page" :"GPT Search"}   
+        <div className="flex my-2 mt-0 md:mt-2">
+          <button className="bg-purple-700 text-white font-semibold md:h-12 md:w-40 mt-2 hover:scale-105 p-3 rounded-lg absolute left-6 md:static" onClick={handleGPTButtonClick}>
+            {showGptSearch ? "Home" :"Search"}   
           </button>
-          { showGptSearch && (<select className="bg-black text-white p-2 m-4" onChange={handleLangChange}>
+          { showGptSearch && (<select className="bg-black text-white absolute left-24 md:static p-2 mt-3 md:m-4" onChange={handleLangChange}>
             {
               SUPPORTED_LANGUAGES.map((lang)=>(<option key={lang.identifier} value={lang.identifier}> {lang.name}</option> ))
             }
@@ -74,16 +74,16 @@ const Header = () => {
         </div>
       )}
       {user && (
-        <div className=" flex my-2">
+        <div className=" flex my-0 md:my-2 ">
           <img
-            className="w-20 h-12 mt-2"
+            className="w-20 h-12 mt-0 md:mt-2 absolute right-[100px] md:static"
             // src={user?.photoURL}
             src={USER_ICON}
             alt="user-icon"
           />
           <button
             onClick={handleSignOut}
-            className="text-white bg-red-600 font-semibold w-20 h-12 mt-2 hover:scale-105 p-2 rounded-lg"
+            className="text-white bg-red-600 font-semibold w-20 h-12 mt-0 md:mt-2 absolute right-8 md:static hover:scale-105 p-2 rounded-lg"
           >
             Sign Out
           </button>

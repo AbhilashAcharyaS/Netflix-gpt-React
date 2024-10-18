@@ -1,11 +1,11 @@
 const lang = {
     en:{
         search:"Search",
-        placeholderText:"What would you like to watch today?"
+        placeholderText:"What would you like to watch?"
     },
     hindi:{
         search:"खोज",
-        placeholderText:"आज आप क्या देखना चाहेंगे?"
+        placeholderText:"आप क्या देखना चाहेंगे?"
     },
     kannada:{
         search:"ಹುಡುಕು",
