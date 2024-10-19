@@ -1,15 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { IMG_CDN_URL } from '../Utils/constants'
-import {updateMovieToDisplay} from "../Utils/moviesSlice"
+import {playButtonClick, updateMovieToDisplay} from "../Utils/moviesSlice"
+import { setShowGptToFalse } from '../Utils/GPTSlice';
 
 const MovieCard = ({film}) => {
   // console.log(posterPath);
   const dispatch = useDispatch();
 
   const handleMoviePosterClick = ()=>{
-    console.log(film);
+    // console.log(film);
     dispatch(updateMovieToDisplay(film))
-    
+    dispatch(setShowGptToFalse())
+    dispatch(playButtonClick());
   }
   return (
     <div>

@@ -11,6 +11,9 @@ const GPTSlice = createSlice({
         toggleGptSearchView: (state)=>{
             state.showGptSearch = !state.showGptSearch;
         },
+        setShowGptToFalse:(state,action)=>{
+            state.showGptSearch = false;
+        },
         addGptMovieResult:(state,action)=>{
             const {movieNames,movieResults}=action.payload
             state.movieNames=movieNames;
@@ -19,6 +22,6 @@ const GPTSlice = createSlice({
     }
 })
 
-export const {toggleGptSearchView,addGptMovieResult}= GPTSlice.actions;
+export const {toggleGptSearchView,addGptMovieResult,setShowGptToFalse}= GPTSlice.actions;
 
 export default GPTSlice.reducer;
