@@ -21,6 +21,7 @@ const Login = () => {
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
+    
   };
 
   const handleButtonClick = () => {
@@ -67,7 +68,10 @@ const Login = () => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
+          let errorMessage = error.message;
+          if(errorMessage === "Firebase: Error (auth/network-request-failed).") errorMessage="Check your Internet connection!";
+          if(errorMessage === "Firebase: Error (auth/invalid-credential).") errorMessage="Invalid credentials, Check your password!"; 
+          if(errorMessage === "Firebase: Error (auth/email-already-in-use).") errorMessage="Account already exists! Please Sign In.";
           setErrorMessage(errorMessage);
           // ..
         });
@@ -85,7 +89,9 @@ const Login = () => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
+          let errorMessage = error.message;
+          if(errorMessage === "Firebase: Error (auth/network-request-failed).") errorMessage="Check your Internet connection!";
+          if(errorMessage === "Firebase: Error (auth/invalid-credential).") errorMessage="Invalid credentials, Check your password!"; 
           setErrorMessage(errorMessage);
         });
     }
@@ -104,7 +110,7 @@ const Login = () => {
 
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="p-12 bg-black absolute bg-opacity-80 w-4/5 md:w-1/3 mx-auto my-48 md:my-32 right-0 left-0 rounded-xl"
+        className="p-12 bg-black absolute bg-opacity-80 w-4/5 md:w-1/3 mx-auto my-40 md:my-24 right-0 left-0 rounded-xl"
       >
         <h2 className="font-bold text-3xl text-center md:text-left text-white py-2 mb-6">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -113,6 +119,7 @@ const Login = () => {
           <input
             type="text"
             placeholder="Full Name"
+            minLength={3}
             ref={name}
             className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
           />
@@ -130,7 +137,7 @@ const Login = () => {
           className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
         />
 
-        <p className="text-red-500">{errorMessage} </p>
+        <p className="text-red-500 w-full text-center">{errorMessage} </p>
         <button
           className="px-4 py-2 bg-red-700 text-white w-full  rounded-md my-2  border border-white font-bold opacity-100"
           onClick={handleButtonClick}

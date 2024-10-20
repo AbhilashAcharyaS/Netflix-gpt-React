@@ -5,6 +5,6 @@ export const checkValidData = (email,password)=>{
 
     // if(!isNameValid) return "Name is invalid"
     if(!isEmailValid) return "Email is invalid";
-    if(!isPasswordValid) return "Password is invalid";
+    if(!isPasswordValid) return "Password is invalid (It should have 5+ characters containing atleast 1 digit, 1 lowerCase & 1 upperCase letter)";
     return null;
 }
