@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { IMG_CDN_URL } from '../Utils/constants'
 import {playButtonClick, updateMovieToDisplay} from "../Utils/moviesSlice"
 import { setShowGptToFalse } from '../Utils/GPTSlice';
+// import { useEffect } from 'react';
 
 const MovieCard = ({film}) => {
   // console.log(posterPath);
@@ -12,7 +13,16 @@ const MovieCard = ({film}) => {
     dispatch(updateMovieToDisplay(film))
     dispatch(setShowGptToFalse())
     dispatch(playButtonClick());
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
   }
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0)
+  // }, [])
   return (
     <div>
       <div className='w-28 md:w-40 p-2'>

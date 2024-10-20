@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch} from "react-redux";
 import { playButtonClick } from "../Utils/moviesSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -7,7 +7,7 @@ const VideoTitle = ({ title, overview }) => {
   const [info, setInfo ] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  const playButton = useSelector(store=>store.movies.playButtonClicked)
+  // const playButton = useSelector(store=>store.movies.playButtonClicked)
   const handleInfoButtonClick = ()=>{
     setInfo(!info);
   }
@@ -34,7 +34,7 @@ const VideoTitle = ({ title, overview }) => {
       <div className="flex flex-col md:flex-row my-1 md:my-6">
         <button onClick={handlePlayButtonClick} className="bg-white bg-opacity-50 md:bg-opacity-100 text-white md:text-black hover:opacity-70 w-1/4 md:w-1/6 mt-2 md:mt-0 hover:scale-105 px-0 md:px-8 py-1 md:py-3 text-sm md:text-xl rounded-lg">
           <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
@@ -51,7 +51,7 @@ const VideoTitle = ({ title, overview }) => {
         </button>
         <button onClick={handleInfoButtonClick} className="bg-gray-500 bg-opacity-50 text-white w-1/4 md:w-1/6 mt-2 md:mt-0 hover:scale-105 px-1 md:px-8 py-1 md:py-3 text-sm md:text-xl rounded-lg mx-0 md:mx-2">
           {!info? <> <svg
-            xmlns="http://www.w3.org/2000/svg"
+            xmlns="https://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
