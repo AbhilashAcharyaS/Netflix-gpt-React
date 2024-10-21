@@ -28,7 +28,7 @@ const VideoTitle = ({ title, overview }) => {
     <div className="pt-[5%] md:pt-[14%] px-4 md:px-12 absolute w-full aspect-video text-white bg-gradient-to-r from-black">
       <h1 className="text-xl w-full md:w-1/2 md:text-3xl font-semibold">{title}</h1>
       {info && <div>
-      <p className="w-full max-h-24 md:max-h-44 overflow-scroll no-scrollbar md:w-1/2 py-2 md:py-6 text-md md:text-lg">{overview}</p>
+      <p className="w-full max-h-[90px] md:max-h-44 overflow-scroll no-scrollbar md:w-1/2 py-2 md:py-6 text-md md:text-lg">{overview}</p>
       </div>}
       
       <div className="flex flex-col md:flex-row my-1 md:my-6">

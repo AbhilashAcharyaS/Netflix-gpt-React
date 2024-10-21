@@ -21,8 +21,13 @@ const Login = () => {
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
-    
+    // document.getElementById("signInForm").reset();
+    setErrorMessage(null);
   };
+
+  const onInputButtonValueChange = ()=>{
+    setErrorMessage(null);
+  }
 
   const handleButtonClick = () => {
     // console.log(name?.current?.value);
@@ -92,6 +97,8 @@ const Login = () => {
           let errorMessage = error.message;
           if(errorMessage === "Firebase: Error (auth/network-request-failed).") errorMessage="Check your Internet connection!";
           if(errorMessage === "Firebase: Error (auth/invalid-credential).") errorMessage="Invalid credentials, Check your password!"; 
+          if(errorMessage === "Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).") errorMessage="Access to this account has been temporarily disabled due to many failed login attempts. You can try again later."
+          
           setErrorMessage(errorMessage);
         });
     }
@@ -108,7 +115,7 @@ const Login = () => {
         />
       </div>
 
-      <form
+      <form id="signInForm"
         onSubmit={(e) => e.preventDefault()}
         className="p-12 bg-black absolute bg-opacity-80 w-4/5 md:w-1/3 mx-auto my-40 md:my-24 right-0 left-0 rounded-xl"
       >
@@ -126,12 +133,14 @@ const Login = () => {
         )}
         <input
           type="text"
+          onChange={onInputButtonValueChange}
           placeholder="Email Address"
           ref={email}
           className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
         />
         <input
           type="password"
+          onChange={onInputButtonValueChange}
           placeholder="Password"
           ref={password}
           className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
