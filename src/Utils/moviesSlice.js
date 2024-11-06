@@ -7,7 +7,7 @@ const moviesSlice= createSlice({
         popularMovies:null,
         topRatedMovies:null,
         upcomingMovies:null,
-        trailerVideo:null,
+        trailerVideo:[],
         playButtonClicked:false,
         movieToDisplay:{
             "adult": false,

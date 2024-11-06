@@ -14,11 +14,11 @@ const trailerVideo= useSelector(store=>store.movies.trailerVideo)
         const json = await data.json();
         // console.log(json);
         
-        const allTrailers = json.results?.filter((video)=>video.type === 'Trailer');
-        const trailer = allTrailers?.length>0 ? allTrailers[0] : json.results[0];
-        // console.log(trailer);
+        const allTrailers = json.results?.filter((video)=>video.type === 'Trailer' || video.type === 'Teaser');
+        // const trailer = allTrailers?.length>0 ? allTrailers[0] : json.results[0];
+        // console.log(allTrailers);
 
-        dispatch(addTrailerVideo(trailer))
+        dispatch(addTrailerVideo(allTrailers))
         
     }    
     
