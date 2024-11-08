@@ -20,7 +20,11 @@ const Browse = () => {
       {
         showGptSearch ? <GPTSearchPage/> : <>
         <MainContainer/>
-        <SecondaryContainer/></>
+        <SecondaryContainer/>
+        <div className="w-full p-12 bg-black bottom-0">
+          <h4 className="text-slate-300 text-center">Developed by <a href="https://www.linkedin.com/in/abhilash-acharya-56ab61191 " className="text-white hover:underline">Abhilash</a> </h4>
+        </div>
+        </>
       }
       
       

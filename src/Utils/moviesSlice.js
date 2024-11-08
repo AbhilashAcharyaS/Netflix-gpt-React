@@ -9,32 +9,34 @@ const moviesSlice= createSlice({
         upcomingMovies:null,
         trailerVideo:[],
         playButtonClicked:false,
-        movieToDisplay:{
-            "adult": false,
-            "backdrop_path": "/g1z1ZvYKcmk9EnVOTYXR6vkNjkZ.jpg",
-            "genre_ids": [
-                14,
-                27,
-                28
-            ],
-            "id": 1087822,
-            "original_language": "en",
-            "original_title": "Hellboy: The Crooked Man",
-            "overview": "Hellboy and a rookie BPRD agent get stranded in 1950s rural Appalachia. There, they discover a small community haunted by witches, led by a local devil with a troubling connection to Hellboy's past: the Crooked Man.",
-            "popularity": 1158.95,
-            "poster_path": "/iz2GabtToVB05gLTVSH7ZvFtsMM.jpg",
-            "release_date": "2024-08-29",
-            "title": "Hellboy: The Crooked Man",
-            "video": false,
-            "vote_average": 4.9,
-            "vote_count": 130
-        },
+        movieToDisplay:
+            // "adult": false,
+            // "backdrop_path": "/g1z1ZvYKcmk9EnVOTYXR6vkNjkZ.jpg",
+            // "genre_ids": [
+            //     14,
+            //     27,
+            //     28
+            // ],
+            // "id": 1087822,
+            // "original_language": "en",
+            // "original_title": "Hellboy: The Crooked Man",
+            // "overview": "Hellboy and a rookie BPRD agent get stranded in 1950s rural Appalachia. There, they discover a small community haunted by witches, led by a local devil with a troubling connection to Hellboy's past: the Crooked Man.",
+            // "popularity": 1158.95,
+            // "poster_path": "/iz2GabtToVB05gLTVSH7ZvFtsMM.jpg",
+            // "release_date": "2024-08-29",
+            // "title": "Hellboy: The Crooked Man",
+            // "video": false,
+            // "vote_average": 4.9,
+            // "vote_count": 130
+            null
+        ,
 
         searchMovieResult:null
     },
     reducers:{
         addNowPlayingMovies:(state,action)=>{
             state.nowPlayingMovies = action.payload;
+            state.movieToDisplay = state.nowPlayingMovies[0];
         },
         addPopularMovies:(state,action)=>{
             state.popularMovies = action.payload;
