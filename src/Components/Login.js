@@ -13,9 +13,10 @@ import { BG_IMG_URL } from "../Utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-  const name = useRef(null);
-  const email = useRef(null);
-  const password = useRef(null);
+  // const name = useRef(null);
+  const[name, setName] = useState('TestUser')
+  const [email,setEmail] = useState('testUser@gmail.com');
+  const [password,setPassword] = useState('testUser#321@');
   const [errorMessage, setErrorMessage] = useState(null);
   const dispatch = useDispatch();
 
@@ -34,7 +35,7 @@ const Login = () => {
 
     // console.log(email.current.value);
     // console.log(password.current.value);
-    const message = checkValidData(email.current.value, password.current.value);
+    const message = checkValidData(email, password);
     // console.log(message);
     setErrorMessage(message);
 
@@ -44,14 +45,14 @@ const Login = () => {
 
       createUserWithEmailAndPassword(
         auth,
-        email.current.value,
-        password.current.value
+        email,
+        password
       )
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
           updateProfile(user, {
-            displayName: name.current.value,
+            displayName: name,
             photoURL: "https://avatars.githubusercontent.com/u/49024964?v=4",
           })
             .then(() => {
@@ -84,8 +85,8 @@ const Login = () => {
       //sign in
       signInWithEmailAndPassword(
         auth,
-        email.current.value,
-        password.current.value
+        email,
+        password
       )
         .then((userCredential) => {
           // Signed in
@@ -126,23 +127,28 @@ const Login = () => {
           <input
             type="text"
             placeholder="Full Name"
+            value={name}
+            onChange={(e)=>{setName(e.target.value); setErrorMessage(null)}}
             minLength={3}
-            ref={name}
+            // ref={name}
             className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
           />
         )}
         <input
           type="text"
-          onChange={onInputButtonValueChange}
+          // onChange={onInputButtonValueChange}
           placeholder="Email Address"
-          ref={email}
+          value={email}
+          onChange={(e)=>{setEmail(e.target.value); setErrorMessage(null)}}
           className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
         />
         <input
           type="password"
-          onChange={onInputButtonValueChange}
+          // onChange={onInputButtonValueChange}
           placeholder="Password"
-          ref={password}
+          value={password}
+          // ref={password}
+          onChange={(e)=>{setPassword(e.target.value); setErrorMessage(null)}}
           className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
         />
 
