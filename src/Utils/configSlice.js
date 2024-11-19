@@ -10,12 +10,11 @@ const configSlice = createSlice({
         changeLang:(state,action)=>{
             state.lang = action.payload;
         },
-        setApp: (state, action) => {
-            const { appState, appData } = action.payload;
-            state[appState] = appData;
+        toggleMuteValue: (state, action) => {
+            state.isMuted= !state.isMuted;
           }
     }
 })
 
-export const {changeLang, setApp}= configSlice.actions;
+export const {changeLang, toggleMuteValue}= configSlice.actions;
 export default configSlice.reducer;

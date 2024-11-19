@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Header from "./Header";
 import { checkValidData } from "../Utils/validate";
 import { auth } from "../Utils/firebase";
@@ -26,9 +26,9 @@ const Login = () => {
     setErrorMessage(null);
   };
 
-  const onInputButtonValueChange = ()=>{
-    setErrorMessage(null);
-  }
+  // const onInputButtonValueChange = ()=>{
+  //   setErrorMessage(null);
+  // }
 
   const handleButtonClick = () => {
     // console.log(name?.current?.value);
@@ -73,7 +73,7 @@ const Login = () => {
           // ...
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           let errorMessage = error.message;
           if(errorMessage === "Firebase: Error (auth/network-request-failed).") errorMessage="Check your Internet connection!";
           if(errorMessage === "Firebase: Error (auth/invalid-credential).") errorMessage="Invalid credentials, Check your password!"; 
@@ -90,11 +90,11 @@ const Login = () => {
       )
         .then((userCredential) => {
           // Signed in
-          const user = userCredential.user;
+          // const user = userCredential.user;
           // ...
         })
         .catch((error) => {
-          const errorCode = error.code;
+          // const errorCode = error.code;
           let errorMessage = error.message;
           if(errorMessage === "Firebase: Error (auth/network-request-failed).") errorMessage="Check your Internet connection!";
           if(errorMessage === "Firebase: Error (auth/invalid-credential).") errorMessage="Invalid credentials, Check your password!"; 
