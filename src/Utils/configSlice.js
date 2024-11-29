@@ -4,7 +4,7 @@ const configSlice = createSlice({
     name:"config",
     initialState:{
         lang:"en",
-        isMuted: true
+        isMuted: false
     },
     reducers:{
         changeLang:(state,action)=>{

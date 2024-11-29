@@ -21,7 +21,7 @@ const VideoBackground = ({movieId}) => {
 
   else {
     return(
-      <iframe className='w-full aspect-video z-20 ' src={`https://www.youtube.com/embed/${trailerVideo[trailerVideo.length-1]?.key}?autoplay=1&mute=${isMuted ? 1 : 0}&cc_load_policy=0&controls=0&showinfo=0&rel=0&iv_load_policy=3&playlist=${trailerVideo[trailerVideo.length-1]?.key}&loop=1`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+      <iframe className='w-full aspect-video z-20 ' src={`https://www.youtube.com/embed/${trailerVideo[trailerVideo.length-1]?.key}?autoplay=1&mute=${isMuted ? 1 : 0}&cc_load_policy=0&controls=0&showinfo=0&rel=0&autohide=1&modestbranding=1&iv_load_policy=3&playlist=${trailerVideo[trailerVideo.length-1]?.key}&loop=1`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     );
   }
   // return (
