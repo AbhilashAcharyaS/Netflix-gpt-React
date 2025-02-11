@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO, SUPPORTED_LANGUAGES, USER_ICON } from "../Utils/constants";
-import { toggleGptSearchView } from "../Utils/GPTSlice";
+import { removeSuggestions, toggleGptSearchView } from "../Utils/GPTSlice";
 import { changeLang } from "../Utils/configSlice";
 
 const Header = () => {
@@ -48,7 +48,8 @@ const Header = () => {
   const lang = useSelector(store=>store.config.lang);
 
   const handleGPTButtonClick = ()=>{
-    dispatch(toggleGptSearchView());    
+    dispatch(toggleGptSearchView()); 
+    dispatch(removeSuggestions())   
   }
 
   const handleLangChange = (e)=>{    

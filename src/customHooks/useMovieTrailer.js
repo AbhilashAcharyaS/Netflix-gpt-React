@@ -19,6 +19,11 @@ const trailerVideo= useSelector(store=>store.movies.trailerVideo)
         // console.log(allTrailers);
 
         dispatch(addTrailerVideo(allTrailers))
+
+        // console.log(allTrailers);
+        // console.log(json.results);
+        
+        
         
     }    
     
