@@ -76,12 +76,21 @@ const Header = () => {
       )}
       {user && (
         <div className=" flex my-0 md:my-2 ">
+          {user?.photoURL=== USER_ICON ?
           <img
-            className="w-20 h-12 mt-0 md:mt-2 absolute right-[100px] md:static"
-            // src={user?.photoURL}
-            src={USER_ICON}
-            alt="user-icon"
-          />
+          className="w-20 h-12 mt-0 md:mt-2 rounded-full  absolute right-[100px] md:static"
+          src={user?.photoURL || USER_ICON}
+          // src={USER_ICON}
+          alt="user-icon"
+        />
+        : <img
+        className="w-12 h-12 mt-0 md:mt-2 rounded-full absolute right-[120px] md:static md:mr-2 "
+        src={user?.photoURL || USER_ICON}
+        // src={USER_ICON}
+        alt="user-icon"
+      />
+      }
+          
           <button
             onClick={handleSignOut}
             className="text-white bg-red-600 font-semibold w-20 h-12 mt-0 md:mt-2 absolute right-8 md:static hover:scale-105 p-2 rounded-lg"
