@@ -159,9 +159,9 @@ const Login = () => {
       <form
         id="signInForm"
         onSubmit={(e) => e.preventDefault()}
-        className="p-12 sm:px-12 sm:py-8 bg-black absolute bg-opacity-80 w-4/5 md:w-1/3 mx-auto my-40 md:my-24 right-0 left-0 rounded-xl"
+        className="p-12 sm:px-12 sm:py-4 bg-black absolute bg-opacity-80 w-4/5 md:w-1/3 mx-auto my-40 md:my-24 right-0 left-0 rounded-xl"
       >
-        <h2 className="font-bold text-3xl text-center md:text-left text-white py-2 mb-6">
+        <h2 className="font-bold text-3xl text-center md:text-left text-white py-2 mb-6 sm:mb-0">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h2>
         {!isSignInForm && (
@@ -175,7 +175,7 @@ const Login = () => {
             }}
             minLength={3}
             // ref={name}
-            className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
+            className="p-2 my-2 w-full rounded-md text-white bg-gray-800 border border-white py-4 sm:py-3"
           />
         )}
         <input
@@ -187,7 +187,7 @@ const Login = () => {
             setEmail(e.target.value);
             setErrorMessage(null);
           }}
-          className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
+          className="p-2 my-2 w-full rounded-md text-white bg-gray-800 border border-white py-4 sm:py-3"
         />
         <input
           type="password"
@@ -199,7 +199,7 @@ const Login = () => {
             setPassword(e.target.value);
             setErrorMessage(null);
           }}
-          className="p-2 my-2 w-full rounded-md text-white bg-black border border-white py-4"
+          className="p-2 my-2 w-full rounded-md text-white bg-gray-800 border border-white py-4 sm:py-3"
         />
 
         <p className="text-red-500 w-full text-center">{errorMessage} </p>
