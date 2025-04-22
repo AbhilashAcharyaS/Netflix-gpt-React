@@ -14,10 +14,10 @@ const MainContainer = () => {
 
   // console.log(mainMovie);
   
-  const {title , overview, id} =mainMovie;  
+  const {title , overview, id, vote_average , vote_count, release_date} =mainMovie;  
   return (
     <div className='pt-[45%] md:pt-0 bg-black'>
-        <VideoTitle title={title} overview={overview} />
+        <VideoTitle title={title} overview={overview} vote_average={vote_average} vote_count={vote_count} release_date={release_date} />
         <VideoBackground movieId={id}/>
     </div>
   )
